@@ -4,6 +4,7 @@ const close = document.getElementsByClassName('close')[0];
 const modalRoomNum = document.getElementById('roomNum');
 const modalPrice = document.getElementById('pricePerNight');
 const modalTotal = document.getElementById('total');
+const quantity = document.querySelector('#quantity');
 
 let room = [];
 
@@ -21,19 +22,20 @@ for (var i = 0; i < book.length; i++) {
 
 //MODAL
 //MODAL: CLOSE
-//will "close" the Modal
+//will 'close' the Modal
 
 function bookingContents() {
-    modalRoomNum.innerHTML = 'Room ' + room.num
-    modalPrice.innerHTML = room.price + '/ Night'
-    modal.style.display = "block";
-}
-
-function nights(quan) {
-	let total = quan * parseFloat(room.price.slice(1));
-	modalTotal.innerHTML = '$ ' + total;
+    modalRoomNum.innerHTML = 'Room ' + room.num;
+    modalPrice.innerHTML = room.price + '/ Night';
+    modal.style.display = 'block';
 }
 
 close.addEventListener('click', () => {
-    modal.style.display = "none";
+    modal.style.display = 'none';
 })
+
+quantity.addEventListener('change', function(e){
+	e.preventDefault();
+	let total = this.value * parseFloat(room.price.slice(1));
+	modalTotal.innerHTML = '$ ' + total.toFixed(2);
+});
