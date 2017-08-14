@@ -90,6 +90,11 @@ body {
     width: 50%;
 }
 
+.modal-content ul li {
+  font-size: 180%;
+  padding-bottom: 20px;
+}
+
 .close {
     color: #aaaaaa;
     float: right;

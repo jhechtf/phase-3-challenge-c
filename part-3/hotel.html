@@ -86,9 +86,18 @@
             <h1>BOOKING</h1>
             <ul id="list" class="content">
                 <li class="flex flex-row-between"><span id="roomNum">Room Num</span><span id="pricePerNight">Price / Night</span></li>
-                <li class="flex flex-row-between">Check In<span></span></li>
-                <li class="flex flex-row-between">Nights<span></span></li>
-                <li class="flex flex-row-between">Total<span></span>
+                <li class="flex flex-row-between">Check In
+                    <form>
+                        <input type="date" name="checkIn">
+                    </form>
+                </li>
+                <li class="flex flex-row-between">Nights
+                    <form action="" onsubmit='nights(quantity.value)'>
+                        <input type="number" name="quantity" min="1" max="5" value="1">
+                        <input type='submit'>
+                    </form>
+                </li>
+                <li class="flex flex-row-between">Total<span id="total"></span>
                     <button>Confirm</button>
                 </li>
             </ul>
