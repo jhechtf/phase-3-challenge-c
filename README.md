@@ -88,10 +88,10 @@ response content type: application/json
 
 ### Requirements
 
-- [ ] __10:__ All files are stored under the `part-1/` folder
-- [ ] __10:__ All dependencies are specified in a `package.json` file
-- [ ] __10:__ Web server can be started with `npm start` command
-- [ ] __20:__ GET requests to the `/api/shout/:word` route responds with  content type `application/text`, as described in the example above
+- [x] __10:__ All files are stored under the `part-1/` folder
+- [x] __10:__ All dependencies are specified in a `package.json` file
+- [x] __10:__ Web server can be started with `npm start` command
+- [x] __20:__ GET requests to the `/api/shout/:word` route responds with  content type `application/text`, as described in the example above
 - [ ] __80:__ POST requests to the `/api/array/merge` merge the two arrays provided in the request body and responds with the result. An invalid input should return a 400 response.
 
 ## Part 2: Command Line Hotel Management System
@@ -225,10 +225,10 @@ Clicking on the "Book" button for any room opens the "Booking" modal.
 
 ### Requirements
 
-- [ ] __10:__ All files are stored under the `part-3/` folder
-- [ ] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
-- [ ] __10:__ HTML, CSS, and JS are separated into their own files.
-- [ ] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info automatically inserted (room number and nightly rate)
+- [x] __10:__ All files are stored under the `part-3/` folder
+- [x] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
+- [x] __10:__ HTML, CSS, and JS are separated into their own files.
+- [x] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info automatically inserted (room number and nightly rate)
 - [ ] __20:__ Users can select a check-in date (using an HTML5 date input) and a number of nights
 - [ ] __20:__ The "Total" in the "Booking" modal shows the total sum (formula: nightly rate multiplied by number of nights)
 - [ ] __20:__ Whenever the number of nights changes, the total is updated automatically
