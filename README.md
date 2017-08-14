@@ -231,7 +231,7 @@ Clicking on the "Book" button for any room opens the "Booking" modal.
 - [x] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info autmatically inserted (room number and nightly rate)
 - [x] __20:__ Users can select a check-in date (using an HTML5 date input) and a number of nights
 - [x] __20:__ The "Total" in the "Booking" modal shows the total sum (formula: nightly rate multiplied by number of nights)
-- [ ] __20:__ Whenever the number of nights changes, the total is updated automatically
+- [x] __20:__ Whenever the number of nights changes, the total is updated automatically
 - [x] __20:__ Clicking on the "X" button in the "Booking" modal closes the modal
 
 [hotel-bookings]: https://gist.github.com/lg-bot/1ea5b9cb6dfab086bcb2db3d144e81d4#file-bookings-csv
