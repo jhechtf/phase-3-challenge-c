@@ -12,16 +12,19 @@ app.get('/api/shout/:word', (req, res) => {
 
 app.post('/api/array/merge', (req, res) => {
     try {
-        const vals = Object.keys(req.body).map(key => JSON.parse(req.body[key]));
-        let ret = vals.reduce(function(a, b) {
-            a = a.concat(b);
-            return a;
-        }, []);
-        res.status(200).send(ret);
+        let a = JSON.parse(req.body.a),
+            b = JSON.parse(req.body.b);
+        var result = [];
+
+        for (var i = 0; i < Math.max(a.length, b.length); i++) {
+            if (a[i] !== undefined) result.push(a[i]);
+            if (b[i] !== undefined) result.push(b[i]);
+        }
+        res.status(200).send(result);
     } catch (e) {
-        res.status(400).send('"error": "Input data should be of type Array."');
+        res.status(400).send({error:'Both keys in request body must be of type Array.'});
     }
-})
+});
 
 
 app.listen('3000', () => {
