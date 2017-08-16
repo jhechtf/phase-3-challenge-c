@@ -7,22 +7,20 @@ app.use(bodyParser.json());
 
 app.get('/api/shout/:word', (req, res) => {
     let word = req.params.word.toUpperCase() + '!!!';
-    res.status(200).send(word)
+    res.status(200).send(word);
 })
 
 app.post('/api/array/merge', (req, res) => {
     try {
         const vals = Object.keys(req.body).map(key => JSON.parse(req.body[key]));
-
         let ret = vals.reduce(function(a, b) {
             a = a.concat(b);
             return a;
         }, []);
-        res.status(200).send(vals[1]);
+        res.status(200).send(ret);
     } catch (e) {
-        res.status(400).send('"error": "Input data should be of type Array."')
+        res.status(400).send('"error": "Input data should be of type Array."');
     }
-
 })
 
 
