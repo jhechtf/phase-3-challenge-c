@@ -54,16 +54,26 @@ function guests() {
 function rooms(arg) {
     client.connect();
     try {
-        client.query(`SELECT`).then(result => {
+        client.query(`SELECT r.*, b.id is not null as reserved FROM rooms as r 
+        		LEFT JOIN bookings as b ON b.room_id = r.id 
+        		AND '2017-08-14' 
+        		BETWEEN b.check_in and b.check_out;`).then(result => {
             let rooms = [];
             result.rows.forEach((item) => {
                 room = {};
                 room.num = item.number;
-                room.capacity = item.capacity
-                room.availability = item.availability
-
-                client.end();
+                room.capacity = item.capacity;
+                room.reserved = item.reserved;
+                rooms.push(room);
             })
+            client.end();
+            console.log('+----+----------+----------+');
+            console.log('| ID | CAPACITY | RESERVED |');
+            console.log('+----+----------+----------+');
+            rooms.forEach((item)=>{
+            	console.log(`| ${item.num}`.padEnd(5)+`|    ${item.capacity}`.padEnd(11)+ `| ${item.reserved}`.padEnd(11) +`|`)
+            })
+            console.log('+----+----------+----------+');
 
         })
     } catch (e) {
@@ -98,7 +108,7 @@ function bookings(arg) {
                         `| ` + `${item.check_in}`.slice(3, 13).padEnd(12) + ` | ` + `${item.check_out}`.slice(3, 13).padEnd(13) + ` | `);
                 })
                 console.log('+--------+--------------------------+--------------+---------------+');
-            })
+            })	
         }
         if (typeof arg === 'string') {
             client.query(`SELECT r.number, g.name, b.check_in, b.check_out FROM bookings AS b
